@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 /**
  * Student class with inner GradeBook class
  * Demonstrates how inner classes can access outer class private fields
@@ -49,7 +51,7 @@ public class Student {
                 gradeCount++;
                 System.out.println("Grade Added: ");
             }else {
-                System.out.println("Grade is full.!");
+                System.out.println("Gradebook is full.!");
             }
 
         }
@@ -60,7 +62,11 @@ public class Student {
         // TODO: Print "GPA calculated and updated to: " + the new GPA value
         // TODO: Handle case where no grades have been added (gradeCount == 0)
         public void calculateGPA() {
-
+            double sum = 0.0;
+            for (int i = 0; i < grades.length; i++) {
+                sum += grades[i];
+            }
+            GPA = sum / grades.length;
             // TODO: Implement calculateGPA method
             // TODO: Remember: you can directly access and modify the outer class GPA field!
             // TODO: Use: Student.this.GPA = calculatedAverage;
@@ -76,6 +82,9 @@ public class Student {
             // TODO: Implement displayGrades method
             // TODO: Remember: you can access outer class private fields directly!
             // TODO: Use: Student.this.name to access the outer class name field
+            System.out.println();
+            System.out.println(Arrays.toString(grades));
+            System.out.println("Current GPA: " + GPA);
 
         }
     }
